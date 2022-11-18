@@ -2,10 +2,14 @@
 #include "motor.h"
 #include "sensors.h"
 
+GYRO bno;
+
 void setup() {
-  // put your setup code here, to run once:
+  bno.setup();
+  Serial.begin(115200);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  bno.get();
+  Serial.println(bno.dir);
 }

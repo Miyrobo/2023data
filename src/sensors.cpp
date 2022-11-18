@@ -1,6 +1,6 @@
 #include "sensors.h"
 
-HardwareSerial Serial_arduino(Serial2);   //ラインに用いるUARTの番号
+//HardwareSerial Serial_arduino(Serial2);   //サブマイコン用のUARTの番号
 
 Adafruit_BNO055 bno055 = Adafruit_BNO055(-1, 0x28);
 
@@ -21,6 +21,7 @@ void GYRO::setup() {
   bno055.begin();
   bno055.getTemp();
   bno055.setExtCrystalUse(true);
+  reset();
 }
 
 void GYRO::get() {
