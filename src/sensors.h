@@ -27,10 +27,14 @@ class BALL {
 class LINE {
  public:
   bool isOnline = 0;  //ライン上か
+  bool isHalfout = 0; //半分以上外
   int dir;            //コートの方向
-  void get();         //状態取得
+  int x,y;            //位置
+  void get_state();         //状態取得
+  bool state[NUM_lines];
  private:
   int _pin[NUM_lines]={};
+  int _th[NUM_lines];
 };
 
 class GYRO {

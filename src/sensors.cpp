@@ -42,6 +42,12 @@ void GYRO::reset() {  //攻め方向リセット
   dir0 = ypr[0];
 }
 
-void LINE::get(){
-
+void LINE::get_state(){
+  for(int i=0;i<NUM_lines;i++){
+    if(analogRead(_pin[i] > _th[i])){
+      state[i]=true;
+    }else{
+      state[i]=false;
+    }
+  }
 }
